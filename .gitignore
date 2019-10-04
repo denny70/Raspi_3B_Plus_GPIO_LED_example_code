@@ -1,0 +1,12 @@
+
+*.order
+*.symvers
+*.ko
+*.mod.o
+*.o
+.tmp_versions/**
+.rasp*
+*.mk
+*.mod.c
+raspi_led_test
+
