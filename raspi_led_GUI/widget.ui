@@ -36,7 +36,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>GPIO: number</string>
+    <string>GPIO: number:</string>
    </property>
   </widget>
   <widget class="QLineEdit" name="GPIO_port">
@@ -55,7 +55,7 @@
   <widget class="QLineEdit" name="on_off">
    <property name="geometry">
     <rect>
-     <x>230</x>
+     <x>310</x>
      <y>100</y>
      <width>71</width>
      <height>25</height>
@@ -63,6 +63,19 @@
    </property>
    <property name="text">
     <string>1</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>230</x>
+     <y>100</y>
+     <width>67</width>
+     <height>17</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>on:1 off:0</string>
    </property>
   </widget>
  </widget>

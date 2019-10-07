@@ -24,8 +24,11 @@ class Ui_Widget(object):
         self.GPIO_port.setGeometry(QtCore.QRect(140, 100, 61, 25))
         self.GPIO_port.setObjectName("GPIO_port")
         self.on_off = QtWidgets.QLineEdit(Widget)
-        self.on_off.setGeometry(QtCore.QRect(230, 100, 71, 25))
+        self.on_off.setGeometry(QtCore.QRect(310, 100, 71, 25))
         self.on_off.setObjectName("on_off")
+        self.label_2 = QtWidgets.QLabel(Widget)
+        self.label_2.setGeometry(QtCore.QRect(230, 100, 67, 17))
+        self.label_2.setObjectName("label_2")
 
         self.retranslateUi(Widget)
         QtCore.QMetaObject.connectSlotsByName(Widget)
@@ -34,6 +37,7 @@ class Ui_Widget(object):
         _translate = QtCore.QCoreApplication.translate
         Widget.setWindowTitle(_translate("Widget", "Widget"))
         self.ok_btn.setText(_translate("Widget", "Ok"))
-        self.label.setText(_translate("Widget", "GPIO: number"))
+        self.label.setText(_translate("Widget", "GPIO: number:"))
         self.GPIO_port.setText(_translate("Widget", "2"))
         self.on_off.setText(_translate("Widget", "1"))
+        self.label_2.setText(_translate("Widget", "on:1 off:0"))
