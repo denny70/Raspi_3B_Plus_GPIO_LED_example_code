@@ -11,7 +11,7 @@
 
 //#include <linux/err.h>
 
-static unsigned int __iomem *gpio_base;
+static uint32_t __iomem *gpio_base;
 #define BCM2835_GPIO_BASE 0x3f200000
 #define BCM2835_GPIO_SET_OFFSET (0x1C/4)
 #define BCM2835_GPIO_CLR_OFFSET (0x28/4)
@@ -22,8 +22,8 @@ static unsigned int __iomem *gpio_base;
 #define GPIO_INPUT(g) ((*(gpio_base + ((g)/10))) &= ~(0x7 << (((g)%10)*3)))
 #define GPIO_CLEAN(g) ((*(gpio_base + ((g)/10))) &= ~(0x7 << (((g)%10)*3)))
 #define GPIO_OUTPUT(g) ((*(gpio_base + ((g)/10))) |= (0x1 << (((g)%10)*3)))
-#define GPIO_HIGH(g) ((*(gpio_base + BCM2835_GPIO_SET_OFFSET + ((g)/32))) |= (0x1 << ((g)%32)))
-#define GPIO_LOW(g) ((*(gpio_base + BCM2835_GPIO_CLR_OFFSET + ((g)/32))) |= (0x1 << ((g)%32)))
+#define GPIO_HIGH(g) ((*(gpio_base + BCM2835_GPIO_SET_OFFSET + ((g)/32))) = (0x1 << ((g)%32)))
+#define GPIO_LOW(g) ((*(gpio_base + BCM2835_GPIO_CLR_OFFSET + ((g)/32))) = (0x1 << ((g)%32)))
 
 //#define LED_MAJOR 256
 //#define LED_MINOR 0
