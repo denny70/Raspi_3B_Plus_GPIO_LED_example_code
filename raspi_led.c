@@ -9,9 +9,7 @@
 
 #include "raspi_led.h"
 
-//#include <linux/err.h>
-
-static uint32_t __iomem *gpio_base;
+static volatile uint32_t __iomem *gpio_base;
 #define BCM2835_GPIO_BASE 0x3f200000
 #define BCM2835_GPIO_SET_OFFSET (0x1C/4)
 #define BCM2835_GPIO_CLR_OFFSET (0x28/4)
@@ -39,29 +37,12 @@ static struct LED_DEVICE {
     struct cdev cdev;
 } LED_device;
 
-static int LED_open(struct inode *inode, struct file *filp){
-    filp->private_data = container_of(inode->i_cdev, struct LED_DEVICE, cdev);
-    return 0;
-}
-static int LED_release(struct inode *indoe, struct file *filp){
-    return 0;
-}
-static ssize_t LED_read(struct file *filp, char __user *buf, size_t len, loff_t *pos){
+static int __init LED_init(void);
+static int LED_open(struct inode *inode, struct file *filp);
+static int LED_release(struct inode *indoe, struct file *filp);
+static ssize_t LED_read(struct file *filp, char __user *buf, size_t len, loff_t *pos);
+static ssize_t LED_write(struct file *filp, const char *buf, size_t len, loff_t *pos);
 
-}
-static ssize_t LED_write(struct file *filp, const char *buf, size_t len, loff_t *pos){
-    int copied = 0;
-    struct Parameter parameter;
-    copied = copy_from_user((void *)&parameter, buf, len);
-    
-
-    if (parameter.on_off == 0){
-        GPIO_LOW(parameter.GPIO_port);
-    }else{
-        GPIO_HIGH(parameter.GPIO_port);
-    }
-    return copied;
-}
 static struct file_operations LED_ops={
     .owner = THIS_MODULE,
     .open = LED_open,
@@ -76,16 +57,17 @@ static int __init LED_init(void){
     int i = 0;
 
     gpio_base = ioremap(BCM2835_GPIO_BASE, 0xA0);
-    for (i=2; i<9; i++){
+    for (i=2; i<10; i++){
         GPIO_CLEAN(i);
         GPIO_OUTPUT(i);
-        GPIO_HIGH(i);
+        GPIO_LOW(i);
     }
 
     GPIO_LOW(2);
     GPIO_LOW(3);
+    GPIO_LOW(8);
 
-    if (IS_ERR(gpio_base)){
+    if (!gpio_base){
         printk(KERN_INFO "ioremap for GPIO_BASE error\n");
         goto reg_err;
     }
@@ -128,6 +110,31 @@ add_err:
 reg_err:
     return ret;
 }
+
+static int LED_open(struct inode *inode, struct file *filp){
+    filp->private_data = container_of(inode->i_cdev, struct LED_DEVICE, cdev);
+    return 0;
+}
+static int LED_release(struct inode *indoe, struct file *filp){
+    return 0;
+}
+static ssize_t LED_read(struct file *filp, char __user *buf, size_t len, loff_t *pos){
+
+}
+static ssize_t LED_write(struct file *filp, const char *buf, size_t len, loff_t *pos){
+    int copied = 0;
+    WData wdata;
+    copied = copy_from_user((void *)&wdata, buf, len);
+    
+    if (wdata.on_off == 0){
+        GPIO_LOW(wdata.GPIO_port);
+    }else{
+        GPIO_HIGH(wdata.GPIO_port);
+    }
+    return copied;
+}
+
+
 static void __exit LED_exit(void){
     int i=0;
     for (i=2; i<28; i++){

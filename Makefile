@@ -13,6 +13,6 @@ all:
 	make -C $(KERNDIR) M=$(PWD) modules
 
 clean:
-	rm -rf *.o *.ko .*.cmd *.mod.c *.symvers *.order *.mk .*.mk .tmp_versions/ a.out 
+	rm -rf *.o *.ko .*.cmd *.mod.c *.symvers *.order *.mk .*.mk .tmp_versions/ 
 
 endif
