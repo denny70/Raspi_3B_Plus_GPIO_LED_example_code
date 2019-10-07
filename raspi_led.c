@@ -22,6 +22,7 @@ static uint32_t __iomem *gpio_base;
 #define GPIO_INPUT(g) ((*(gpio_base + ((g)/10))) &= ~(0x7 << (((g)%10)*3)))
 #define GPIO_CLEAN(g) ((*(gpio_base + ((g)/10))) &= ~(0x7 << (((g)%10)*3)))
 #define GPIO_OUTPUT(g) ((*(gpio_base + ((g)/10))) |= (0x1 << (((g)%10)*3)))
+
 #define GPIO_HIGH(g) ((*(gpio_base + BCM2835_GPIO_SET_OFFSET + ((g)/32))) = (0x1 << ((g)%32)))
 #define GPIO_LOW(g) ((*(gpio_base + BCM2835_GPIO_CLR_OFFSET + ((g)/32))) = (0x1 << ((g)%32)))
 
@@ -74,14 +75,15 @@ static int __init LED_init(void){
     int ret = -1;
     int i = 0;
 
-    LED_device.led_flag=0;
-
     gpio_base = ioremap(BCM2835_GPIO_BASE, 0xA0);
-    for (i=2; i<28; i++){
+    for (i=2; i<9; i++){
         GPIO_CLEAN(i);
         GPIO_OUTPUT(i);
         GPIO_HIGH(i);
     }
+
+    GPIO_LOW(2);
+    GPIO_LOW(3);
 
     if (IS_ERR(gpio_base)){
         printk(KERN_INFO "ioremap for GPIO_BASE error\n");
