@@ -8,12 +8,9 @@ typedef struct WData{
 } WData;
 
 typedef struct RData{
-    unsigned int *GPIO_CTL_ADDR[5];
-    unsigned int GPIO_CTL_DATA[5];
-    unsigned int *GPIO_SET_ADDR[2];
-    unsigned int GPIO_SET_DATA[2];
-    unsigned int *GPIO_CLR_ADDR[2];
-    unsigned int GPIO_CLR_DATA[2];
+    //Because There are GPIO BCM pin 2-27 on the board, you do not have physical pin (28-49) you can plug in
+    volatile unsigned int *GPIO_ctl_addr[3];    //GPIO Function Select 0,1,2 (3,4,5 will not to be used)
+    unsigned int  GPIO_ctl_data[3];             //GPIO Function Select value 0,1,2
 } RData;
 
 #endif

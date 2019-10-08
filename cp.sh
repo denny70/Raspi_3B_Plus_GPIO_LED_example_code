@@ -1,4 +1,5 @@
 #!/bin/sh
+set -e
 
 scp -r denny70@10.242.232.36:/home/denny70/Nextcloud/10_test/linux_driver/raspi_led /home/pi/
 echo "cp file done"
