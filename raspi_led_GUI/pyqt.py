@@ -24,16 +24,7 @@ class Main(QWidget, widget.Ui_Widget):
         
         self.process = QProcess()
         cmd = str("../a.out -w " + self.gpio_port + " " +self.gpio_onOff)
-        print(self.gpio_port)
-        print(cmd)
         self.process.start(cmd)
-        
-        
-        #self.process.start("")
-        #self.textBrowser.setText("Hello")
-    def clearButtonClick(self):
-        pass
-        #self.textBrowser.setText("")
         
 
 if __name__ == "__main__":

@@ -1,22 +1,20 @@
 #!/bin/sh
-set -e
 
-scp -r denny70@10.242.232.36:/home/denny70/Nextcloud/10_test/linux_driver/raspi_led /home/pi/
-echo "cp file done"
 gcc raspi_led_test.c -o raspi_led_test
 echo "gcc"
+
 make
 echo "make module"
+
 ret=$(cat /proc/modules | grep raspi_led)
 if [ -n "$ret" ]; then
-    echo "rmmod module"
+    echo "rmmod raspi_led module"
     sudo rmmod raspi_led
-    echo "rmmod ===============================" > /dev/kmsg
+    echo "rmmod raspi_led ===============================" > /dev/kmsg
 fi
 
 sudo insmod raspi_led.ko
 echo "insmod module"
-echo "insmod ===============================" > /dev/kmsg
+echo "insmod raspi_led ===============================" > /dev/kmsg
 echo "======================================" > /dev/kmsg
-dmesg
 
