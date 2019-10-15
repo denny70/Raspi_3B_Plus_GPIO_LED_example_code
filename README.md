@@ -32,7 +32,7 @@ To want to learn how to write Linux driver, this will be a reference
 
 4) Usage: 
 
-   ./raspi_led_test -w <GPIO pin number(BCM cloumn)> <ON_OFF>
+   ./raspi_led_test -w <BCM GPIO pin number> <ON_OFF>
 
    ex: (pull high on GPIO BCM pin 2) ./raspi_led_test -w 2 1
 
