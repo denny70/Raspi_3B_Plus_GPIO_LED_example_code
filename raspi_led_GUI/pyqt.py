@@ -10,7 +10,7 @@ class Main(QWidget, widget.Ui_Widget):
     def __init__(self):
         super(QWidget, self).__init__()
         self.setupUi(self)
-
+        self.setWindowTitle("Raspi GPIO LED control GUI - By Denny Chen")
         
         self.process = QProcess()
 
