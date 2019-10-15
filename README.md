@@ -5,12 +5,17 @@ To want to learn how to write Linux driver, this will be a reference
 1) use root user                            : su
 2) enter project directory                  : cd raspi_led
 3) compile and load module/user space app   : ./build.sh
+
     2-1) gcc raspi_led_test.c -o raspi_led_test (gcc for raspi test file)
         - raspi_led_test
+
     2-2) make (reapi led kernel module)
         - raspi_led.ko
+
     2-3) remove raspi_led module if you had loaded
+
     2-4) load raspi led module
+
         - sudo insmod raspi_led.ko
 
 4) Usage: 
@@ -26,11 +31,12 @@ To want to learn how to write Linux driver, this will be a reference
    (8-1) Ubuntu:sudo apt-get install python3-pyqt5 or
    (8-2) to install by pip/pip3 : pip install PyQt5
    Usage: to launch GUI APP.
-   ./raspi_led_GUI/python3  pyqt.py
+   python3  ./raspi_led_GUI/pyqt.py
 
 
 ## BCM GPIO PINOUT
 ![Image](https://github.com/denny70/Raspi_3B_Plus_GPIO_LED_example_code/blob/master/gpio_pinout.png)
+
 Image is came from "https://www.raspberrypi.org/documentation/usage/gpio/images/gpiozero-pinout.png"
 
 
