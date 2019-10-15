@@ -8,5 +8,4 @@ a.out
 .rasp*
 *.mk
 *.mod.c
-raspi_led_test
 cp.sh
