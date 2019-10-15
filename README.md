@@ -58,6 +58,8 @@ To want to learn how to write Linux driver, this will be a reference
 
    python3  ./raspi_led_GUI/pyqt.py
 
+# PyQt5 GUI - GPIO controller
+![Image](https://github.com/denny70/Raspi_3B_Plus_GPIO_LED_example_code/blob/master/pyQt5_GUI.png)
 
 ## BCM GPIO PINOUT
 ![Image](https://github.com/denny70/Raspi_3B_Plus_GPIO_LED_example_code/blob/master/gpio_pinout.png)
