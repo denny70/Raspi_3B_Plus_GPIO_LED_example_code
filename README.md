@@ -28,8 +28,9 @@ To want to learn how to write Linux driver, this will be a reference
    Usage: to launch GUI APP.
    ./raspi_led_GUI/python3  pyqt.py
 
-Image is came from "https://www.raspberrypi.org/documentation/usage/gpio/images/gpio-numbers-pi2.png"
-![Image](https://www.raspberrypi.org/documentation/usage/gpio/images/gpio-numbers-pi2.png)
+Image is came from "https://www.raspberrypi.org/documentation/usage/gpio/images/gpiozero-pinout.png"
+
+![Image](https://github.com/denny70/Raspi_3B_Plus_GPIO_LED_example_code/blob/master/gpio_pinout.png)
 
 
 
