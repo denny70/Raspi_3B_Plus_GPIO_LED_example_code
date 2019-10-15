@@ -29,7 +29,7 @@ To want to learn how to write Linux driver, this will be a reference
    ./raspi_led_GUI/python3  pyqt.py
 
 Image is came from "https://www.raspberrypi.org/documentation/usage/gpio/images/gpio-numbers-pi2.png"
-![Image](http://https://www.raspberrypi.org/documentation/usage/gpio/images/gpio-numbers-pi2.png)
+![Image](https://www.raspberrypi.org/documentation/usage/gpio/images/gpio-numbers-pi2.png)
 
 
 
