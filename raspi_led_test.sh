@@ -20,11 +20,11 @@ will pull  low on GPIO BCM pin one by one from 2->3->4->5->6->7->8->9
 GPIO_BCM_PIN="2 3 4 5 6 7 8 9"
 while [ 1 ]; do
     for pin in $GPIO_BCM_PIN; do
-        sudo ./a.out -w $pin 1
+        sudo ./raspi_led_test -w $pin 1
         sleep 0.1
     done
     for pin in $GPIO_BCM_PIN; do
-        sudo ./a.out -w $pin 0
+        sudo ./raspi_led_test -w $pin 0
         sleep 0.1
     done
 done
