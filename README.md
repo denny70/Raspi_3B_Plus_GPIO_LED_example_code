@@ -62,9 +62,4 @@ To want to learn how to write Linux driver, this will be a reference
 ![Image](https://github.com/denny70/Raspi_3B_Plus_GPIO_LED_example_code/blob/master/pyQt5_GUI.png)
 
 ## BCM GPIO PINOUT
-![Image](https://github.com/denny70/Raspi_3B_Plus_GPIO_LED_example_code/blob/master/gpio_pinout.png)
-
-Image is came from "https://www.raspberrypi.org/documentation/usage/gpio/images/gpiozero-pinout.png"
-
-
-
+![Image](https://github.com/denny70/Raspi_3B_Plus_GPIO_LED_example_code/blob/master/Raspi3P_pinouts.png)
