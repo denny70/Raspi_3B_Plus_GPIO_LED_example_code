@@ -50,9 +50,9 @@ To want to learn how to write Linux driver, this will be a reference
 
    But you will need to insatll PyQt5 package
 
-   (8-1) Ubuntu:sudo apt-get install python3-pyqt5 or
+   (6-1) Ubuntu:sudo apt-get install python3-pyqt5 or
 
-   (8-2) to install by pip/pip3 : pip install PyQt5
+   (6-2) to install by pip/pip3 : pip install PyQt5
 
    Usage: to launch GUI APP.
 
